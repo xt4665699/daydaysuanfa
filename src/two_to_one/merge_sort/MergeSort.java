@@ -6,6 +6,7 @@ public class MergeSort {
 
     private MergeSort() {
 
+
     }
 
     public static <E extends Comparable<E>> void sort(E[] arr){
