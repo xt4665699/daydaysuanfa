@@ -1,5 +1,7 @@
 package two_to_one.quick_sort;
 
+import java.util.Random;
+
 public class QuickSort {
     private QuickSort(){}
 
@@ -13,6 +15,10 @@ public class QuickSort {
         sort(arr,p, r);
     }
     private static <E extends Comparable<E>> int partition(E[] arr, int l, int r){
+
+        int p = l + (new Random().nextInt( r - l + 1));
+        swap(arr,l,p);
+
         //arr[l + 1...j] < v,arr[j+1...i] >= v
         int j = l;
 
