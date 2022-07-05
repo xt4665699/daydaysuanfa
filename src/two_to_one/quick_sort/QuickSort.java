@@ -61,6 +61,34 @@ public class QuickSort {
         return j;
     }
 
+
+    public static <E extends Comparable<E>> void  sort3ways(E[] arr){
+        sort3ways(arr,0,arr.length - 1);
+    }
+    private static <E extends Comparable<E>> void  sort3ways(E[] arr,int l, int r){
+        if (l >= r) return;
+        int p = l + (new Random().nextInt( r - l + 1));
+        swap(arr,l,p);
+
+        int lt = l, i = l +1,gt = r +1;
+        while (i < gt){
+            if (arr[i].compareTo(arr[l]) < 0){
+                lt ++;
+                swap(arr,i,lt);
+                i++;
+            }else  if (arr[i].compareTo(arr[l]) > 0){
+                gt--;
+                swap(arr,i,gt);
+            }else {
+                i++;
+            }
+        }
+        swap(arr,l,lt);
+        sort3ways(arr,l,lt - 1);
+        sort3ways(arr,gt,r);
+    }
+
+
     private static<E> void swap(E[] arr, int i, int j) {
         E t  = arr[i];
         arr[i] = arr[j];
