@@ -1,4 +1,4 @@
-package tow_to_four;
+package two_to_four;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -151,6 +151,39 @@ public class BST<E extends Comparable<E>> {
         if (node.right == null)
             return node;
         return minimum(node.right);
+    }
+
+    public E removeMin(){
+        E ret = minimum();
+        root = removeMin(root);
+        return ret;
+    }
+
+    private Node removeMin(Node node) {
+        if (node.left == null){
+            Node rightNote = node.right;
+            node.right = null;
+            size--;
+            return rightNote;
+        }
+        node.left = removeMin(node.left);
+        return node;
+    }
+    public E removeMax(){
+        E ret = maximum();
+        root = removeMax(root);
+        return ret;
+    }
+
+    private Node removeMax(Node node) {
+        if (node.right == null){
+            Node leftNote = node.left;
+            node.left = null;
+            size--;
+            return leftNote;
+        }
+        node.right = removeMax(node.right);
+        return node;
     }
 
 
