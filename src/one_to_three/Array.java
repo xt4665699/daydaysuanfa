@@ -125,6 +125,12 @@ public class Array<E> {
         }
     }
 
+    public void swap(int i, int j){
+        E t  = data[i];
+        data[i] = data[j];
+        data[j] = t;
+    }
+
     private void resize(int newCapacity) {
         E[] newData = (E[]) new Object[newCapacity];
         for (int i = 0; i < size ; i++) {
