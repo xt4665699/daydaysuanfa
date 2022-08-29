@@ -8,6 +8,7 @@ public class Array<E> {
     public Array(int capacity){
         data = (E[]) new Object[capacity];
         size = 0;
+
     }
 
     public Array(){
